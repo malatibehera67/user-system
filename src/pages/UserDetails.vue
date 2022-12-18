@@ -95,7 +95,7 @@ table {
 .repo-container {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   min-width: 400px;
 }
 .repo-details {
