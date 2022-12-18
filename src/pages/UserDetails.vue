@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="getUserDetails.keys" class="user-details">
+    <div class="user-details">
       <a href="/"
         ><img class="back-btn-img" src="../assets/back-btn.png" alt=""
       /></a>
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <div v-else class="no-user-data">No User Data Found</div>
+    <!-- <div v-else class="no-user-data">No User Data Found</div> -->
   </div>
 </template>
 
