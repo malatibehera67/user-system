@@ -1,35 +1,38 @@
 <template>
-  <section class="user-details">
-    <a href="/"
-      ><img class="back-btn-img" src="../assets/back-btn.png" alt=""
-    /></a>
-    <img
-      class="user-img"
-      :src="getUserDetails.avatar_url || showDefaultImg"
-      @error="showDefaultImg"
-      alt="User"
-    />
-    <p class="user-name">{{ getUserDetails.name }}</p>
-    <div class="repo-container">
-      <div class="repo-details" v-for="repo in getRepoList" :key="repo.id">
-        <a :href="repo.html_url"
-          ><p class="repo-name">{{ repo.name }}</p></a
-        >
-        <div class="repo-statistics">
-          <p class="stats-data">
-            <img class="icon" src="../assets/watcher.png" alt="" /><span>{{
-              repo.watchers_count
-            }}</span>
-          </p>
-          <p class="stats-data">
-            <img class="icon" src="../assets/star.png" alt="" /><span>{{
-              repo.stargazers_count
-            }}</span>
-          </p>
+  <div>
+    <div v-if="getUserDetails.keys" class="user-details">
+      <a href="/"
+        ><img class="back-btn-img" src="../assets/back-btn.png" alt=""
+      /></a>
+      <img
+        class="user-img"
+        :src="getUserDetails.avatar_url || showDefaultImg"
+        @error="showDefaultImg"
+        alt="User"
+      />
+      <p class="user-name">{{ getUserDetails.name }}</p>
+      <div class="repo-container">
+        <div class="repo-details" v-for="repo in getRepoList" :key="repo.id">
+          <a :href="repo.html_url"
+            ><p class="repo-name">{{ repo.name }}</p></a
+          >
+          <div class="repo-statistics">
+            <p class="stats-data">
+              <img class="icon" src="../assets/watcher.png" alt="" /><span>{{
+                repo.watchers_count
+              }}</span>
+            </p>
+            <p class="stats-data">
+              <img class="icon" src="../assets/star.png" alt="" /><span>{{
+                repo.stargazers_count
+              }}</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+    <div v-else class="no-user-data">No User Data Found</div>
+  </div>
 </template>
 
 <script>
@@ -134,5 +137,12 @@ a {
   height: 35px;
   position: absolute;
   left: 0;
+}
+a {
+  text-decoration: none;
+}
+.no-user-data {
+  padding: 30%;
+  background-color: red($color: #000000);
 }
 </style>

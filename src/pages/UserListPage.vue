@@ -120,4 +120,7 @@ export default {
   font-size: 15px;
   text-align: center;
 }
+a {
+  text-decoration: none;
+}
 </style>

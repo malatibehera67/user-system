@@ -46,7 +46,6 @@ export default new Vuex.Store({
             fetch(`https://api.github.com/users?per_page=${pageSize}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log("data ", data)
                     commit('seUserList', data)
                 })
         },
@@ -54,7 +53,6 @@ export default new Vuex.Store({
             fetch(`https://api.github.com/users/${userId}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(" data ", data);
                     commit('setUserDetails', data);
                 })
         },
@@ -62,7 +60,6 @@ export default new Vuex.Store({
             fetch(`https://api.github.com/users/${userId}/repos`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(" data ", data);
                     commit('setRepoList', data);
                 })
         },
